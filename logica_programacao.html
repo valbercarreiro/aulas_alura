@@ -1,0 +1,254 @@
+<canvas id="tela" width="600" height="400"></canvas>
+<script type="text/javascript">
+	var tela = document.getElementById("tela");
+	var c = tela.getContext("2d");
+	var raio = 10;
+	
+	var limpa = function() {
+		c.clearRect(0, 0, 600, 400);
+	};
+	
+	var sorteia = function(x){
+		return Math.floor(Math.random() * x);
+	}
+	
+	var circulo = function(x, y, raio) {
+		c.beginPath();
+		c.arc(x, y, raio, 0, 2*Math.PI);
+		c.fill();
+	}
+	
+	var cor = function (valor){
+		c.fillStyle= valor;
+	}
+	
+	var desenhaAlvo = function(x, y) {
+		var raio = 40;
+		cor("white");
+		circulo(x, y, raio);
+		cor("red");
+		circulo(x, y, raio-10);
+		cor("white");
+		circulo(x, y, raio-20);
+		cor("red");
+		circulo(x, y, raio-30);
+	};
+	
+	var alvoX;
+	var alvoY;
+
+	var desenha = function() {
+	  limpa();
+	  alvoX = sorteia(600);
+	  alvoY = sorteia(400);
+	  desenhaAlvo(alvoX, alvoY);
+	};
+	
+	setInterval(desenha, 1000);
+	
+	tela.onclick = function(evento){
+		var x = evento.pageX - tela.offsetLeft;
+		var y = evento.pageY - tela.offsetTop;
+		if((x > alvoX - raio) && (x < alvoX + raio) && 
+			(y > alvoY - raio) && (y < alvoY + raio)) {
+				alert("acertou!");
+		}
+	};
+</script>
+<!--<script type="text/javascript">
+	var tela = document.getElementById("tela");
+	var c = tela.getContext("2d");
+	
+	var imagem = new Image();
+	imagem.src = "http://www.caelum.com.br/imagens/instrutores/fotos/paulo-silveira-90.jpg";
+
+	var desenhaImagem = function(x, y) {
+		c.drawImage(imagem, x, y)
+	};
+	
+	var limpaTela = function() {
+		c.clearRect(0, 0, 600, 400);
+	};
+	
+	var x = 1
+	var desenho = function() {
+		desenhaImagem(x, 100);
+		x = x+1;
+	}
+	
+	setInterval(desenho, 30);
+</script>-->
+<!--<script type="text/javascript">
+	var tela = document.getElementById("tela");
+	var c = tela.getContext("2d");
+	
+	var circulo = function(x, y, raio) {
+		c.strokeStyle="blue";
+		c.beginPath();
+		c.arc(x, y, raio, 0, 2*Math.PI);
+		c.stroke();
+	}
+	
+	var limpaTela = function() {
+		c.clearRect(0, 0, 600, 400);
+	};
+	
+	var x = 1
+	var desenho = function() {
+		circulo(x, 100, x/2);
+		x = x+1;
+	}
+	
+	setInterval(desenho, 30);
+</script>-->
+<!--<script type="text/javascript">
+	var tela = document.getElementById("tela");
+	var c = tela.getContext("2d");
+	
+	var circulo = function(x, y, raio) {
+		c.fillStyle="blue";
+		c.beginPath();
+		c.arc(x, y, raio, 0, 2*Math.PI);
+		c.fill();
+	}
+	
+	var limpaTela = function() {
+		c.clearRect(0, 0, 600, 400);
+	};
+	
+	var x = 1
+	var desenho = function() {
+		limpaTela();
+		circulo(x, 100, 10);
+		x = x+1;
+	}
+	
+	setInterval(desenho, 30);
+</script>-->
+<!--<script type="text/javascript">
+	var tela = document.getElementById("tela");
+	var c = tela.getContext("2d");
+	c.fillStyle="gray";
+	c.fillRect(0, 0, 600, 400);
+	
+	var atiraEsquerda = function(evento) {
+		var x = evento.pageX - tela.offsetLeft;
+		var y = evento.pageY - tela.offsetTop;
+		
+		c.fillStyle="blue";
+		c.beginPath();
+		c.arc(x, y, 10, 0, 2*3.14);
+		c.fill();
+		
+		//console.log("posição do clique : " + x + ", " + y);
+	};
+	
+	var atiraDireita = function(evento) {
+		var x = evento.pageX - tela.offsetLeft;
+		var y = evento.pageY - tela.offsetTop;
+		
+		c.fillStyle="red";
+		c.beginPath();
+		c.arc(x, y, 10, 0, 2*3.14);
+		c.fill();
+	};
+	
+	//tela.onclick = atira;
+	tela.onclick = function(evento){
+		console.log("botão esquerdo");
+		tela.onclick = atiraEsquerda;
+	};
+
+	tela.oncontextmenu = function (evento) {
+		console.log("botao direito");
+		tela.oncontextmenu = atiraDireita;
+		evento.preventDefault();
+	};
+</script>
+	
+<script type="text/javascript">
+    var tela = document.getElementById("tela");
+	var desenhaQuadradoVerde = function(x,y) {
+		var tela = document.getElementById("tela");
+		var c = tela.getContext("2d");
+
+		c.fillStyle="green";
+		c.fillRect(x, y, 50, 50);
+		
+		c.strokeStyle="black";
+		c.strokeRect(x, y, 50, 50);
+	};
+	
+	var desenhaQuadradoVermelho = function(x,y) {
+		var tela = document.getElementById("tela");
+		var c = tela.getContext("2d");
+
+		c.fillStyle="red";
+		c.fillRect(x, y, 50, 50);
+		
+		c.strokeStyle="black";
+		c.strokeRect(x, y, 50, 50);
+	};
+	
+	var desenhaBolaAzul = function(x,y){
+		var tela = document.getElementById("tela");
+		var c = tela.getContext("2d");
+		c.fillStyle="blue";
+		c.beginPath();
+		c.arc(x,y,25,0,Math.PI*2);
+		c.closePath();
+		c.fill();
+	}
+
+	for(var i=0; i < 600; i=i+50){
+		desenhaQuadradoVerde(i,0);
+		desenhaQuadradoVermelho(i,50);
+		desenhaBolaAzul(i,100);
+	}
+</script>-->
+
+
+<!--<h3>Colômbia</h3>
+<canvas id="colombia" width="300" height="200"></canvas>
+
+<script type="text/javascript">
+    var escala = 1.2;
+    var bandeira = document.getElementById("colombia");
+    bandeira.width *= escala;
+    bandeira.height *= escala;
+    var largura = bandeira.width;
+    var altura = bandeira.height;
+    var pincel = bandeira.getContext("2d");
+
+    pincel.fillStyle = "#FCD116";
+    pincel.fillRect(0, 0, largura, altura/2);
+
+    pincel.fillStyle = "#003893";
+    pincel.fillRect(0, altura/2, largura, altura/4);
+
+    pincel.fillStyle = "#CE1126";
+    pincel.fillRect(0, altura*3/4, largura, altura*3/4);
+</script>
+
+
+<h3>Madagascar</h3>
+<canvas id="madagascar" width="300" height="200"></canvas>
+
+<script type="text/javascript">
+    var escala = 1.2;
+    var bandeira = document.getElementById("madagascar");
+    bandeira.width *= escala;
+    bandeira.height *= escala;
+    var largura = bandeira.width;
+    var altura = bandeira.height;
+    var pincel = bandeira.getContext("2d");
+
+    pincel.fillStyle = "#FFFFFF";
+    pincel.fillRect(0, 0, largura/3, altura);
+
+    pincel.fillStyle = "#fc3d32";
+    pincel.fillRect(largura/3, 0, largura*2/3, altura/2);
+
+    pincel.fillStyle = "#007e3a";
+    pincel.fillRect(largura/3, altura/2, largura*2/3, altura/2);
+</script>-->
