@@ -34,6 +34,10 @@ main a {
     color: #851944;
 }
 
+main a:hover {
+    color: #ff0000;
+}
+
 main p {
     text-align: justify;
     margin: 20px 0;
@@ -44,6 +48,10 @@ main p {
     background-color: #3C1D3D;
     color: #F2FFFC;
     padding: 1.75rem;
+}
+
+.navegacao-site a:hover{
+    text-shadow: 0 0 2px pink;
 }
 
 .navegacao-site a {
