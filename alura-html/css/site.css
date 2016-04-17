@@ -30,6 +30,10 @@ h1 {
     clear: both;
 }
 
+main {
+    width: calc(100% - 0.9 * 300px);
+}
+
 main a {
     color: #851944;
 }
@@ -44,6 +48,7 @@ main p {
 }
 
 .navegacao-site {
+    width: calc(0.9 * 300px);
     text-align: center;
     background-color: #3C1D3D;
     color: #F2FFFC;

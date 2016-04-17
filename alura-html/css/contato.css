@@ -52,3 +52,27 @@ input[value="Outro"] ~ input {
 input[value="Outro"]:checked ~ input {
     display: inline;
 }
+
+.com-icone {
+  position: relative;
+}
+
+.com-icone::after {
+  content: ''; /* não podemos esquecer do content! */
+  background-image: url(../imagens/usuario.png);
+  width: 2em;
+  height: 2em;
+  background-color: #8C1D3D;
+  background-size: 50% 50%; /* para a imagem ter 1em x 1em */
+  background-position: center center;
+  background-repeat: no-repeat;
+  position: absolute;
+  top: 100%;
+  left: 0;
+}
+
+.com-icone + input {
+  width: calc(100% - 2em);
+  position: relative;
+  left: 2em;
+}
