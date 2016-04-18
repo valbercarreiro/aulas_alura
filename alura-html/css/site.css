@@ -1,8 +1,6 @@
 body {
-    font-family: "Crimson Text", "Times New Roman", serif;
-    background-color: #F2FFFC;
-    font-size: 120%;
-    line-height: 1.5;
+  display: flex;
+  flex-wrap: wrap;
 }
 
 h1,
@@ -31,7 +29,7 @@ h1 {
 }
 
 main {
-    width: calc(100% - 0.9 * 300px);
+    flex-grow: 1;
 }
 
 main a {
@@ -145,8 +143,9 @@ main {
 .navegacao-site {
     width: 20%;
     float: right;
-    position: relative;
-    top: 300px;
+    /*position: relative;
+    top: 300px;*/
+    padding-top: calc(300px + 1em);
 }
 
 .minha-foto {
