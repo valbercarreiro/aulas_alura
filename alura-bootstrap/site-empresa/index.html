@@ -4,8 +4,11 @@
         <meta charset="UTF-8" />
         <title>Loja virtual</title>
         <link rel="stylesheet" href="css/bootstrap.min.css" />
+        <link rel="stylesheet" href="css/animate.css" />
         <script src="js/jquery-2.2.3.min.js" type="text/javascript"></script>
         <script src="js/bootstrap.min.js" type="text/javascript"></script>
+        <meta name="viewport" content="width=device-width">
+        <script src="js/wow.min.js" type="text/javascript"></script>
         <style>
             .navbar-header button {
                 color: #fff
@@ -16,19 +19,25 @@
             main {
               padding-top: 50px;
             }
+            footer {
+                background:#333;
+                color:#fff;
+                padding:20px 0;
+                text-align:center;
+            }
         </style>
     </head>
     <body>
       <header>
         <nav class="navbar navbar-inverse navbar-fixed-top">
             <div class="navbar-header">
-                <a href="#" class="navbar-brand">Caelum</a>
+                <a href="#home" class="navbar-brand">Caelum</a>
                 <button type="button" data-target=".navbar-collapse" data-toggle="collapse" class="navbar-toggle">Menu</button>
             </div>
             <div class="collapse navbar-collapse">
                 <ul class="navbar-nav nav">
-                    <li><a href="#">Novidades</a></li>
-                    <li><a href="#">Mais vendidos</a></li>
+                    <li><a href="#novidades">Novidades</a></li>
+                    <li><a href="#maisVendidos">Mais vendidos</a></li>
                     <li class="dropdown">
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown">
                             Camisetas
@@ -68,68 +77,160 @@
             </a>
         </div>
 
-        <h3 class="text-center">Novidades</h3>
-
-        <div class="col-xs-12 col-md-4 thumbnail text-center">
-          <figure>
-              <img src="img/camisa-azul.png" alt="camisa azul importada" />
-
-              <div>
-                  <h4>Camisa Azul Importada</h4>
-                  <p>Camisa azul importada com preço acessível e com pano de qualidade</p>
+        <div class="container-fluid">
+          <div class="row" id="home">
+            <div class="col-xs-12 col-sm-3">
+                <div>
+                    <h3 class="text-center">Categorias</h3>
+                </div>
+                <ul class="list-group">
+                    <li class="list-group-item"><a href="#">Camisetas Masculinas</a></li>
+                    <li class="list-group-item"><a href="#">Camisetas Femininas</a></li>
+                    <li class="list-group-item"><a href="#">Roupas de Inverno</a></li>
+                    <li class="list-group-item"><a href="#">Roupas de Verão</a></li>
+                </ul>
+            </div>
+            <div class="col-xs-12 col-sm-9">
+              <div id="novidades">
+                  <h3 class="text-center">Novidades</h3>
               </div>
-          </figure>
-          <div class="btn-group">
-              <a href="#" class="btn btn-default">R$ 190,00</a>
-              <a href="#" class="btn btn-primary">
-                  <span class="glyphicon glyphicon-shopping-cart">
-                  </span>
-                  Comprar
-              </a>
+
+              <div class="col-xs-12 col-md-4 thumbnail text-center wow fadeInUp" data-wow-delay="1s">
+                <figure>
+                    <img src="img/camisa-azul.png" alt="camisa azul importada" />
+
+                    <div>
+                        <h4>Camisa Azul Importada</h4>
+                        <p>Camisa azul importada com preço acessível e com pano de qualidade</p>
+                    </div>
+                </figure>
+                <div class="btn-group">
+                    <a href="#" class="btn btn-default">R$ 190,00</a>
+                    <a href="#" class="btn btn-primary">
+                        <span class="glyphicon glyphicon-shopping-cart">
+                        </span>
+                        Comprar
+                    </a>
+                </div>
+              </div>
+
+              <div class="col-xs-12 col-md-4 thumbnail text-center wow fadeInUp" data-wow-delay="1s">
+                  <figure>
+                      <img src="img/camisa-rosa.png" alt="Camisa rosa argentina" />
+
+                      <div>
+                          <h4>Camisa Rosa Argentina</h4>
+                          <p>Camisa rosa argentina com preço acessível e com pano de qualidade</p>
+                      </div>
+                  </figure>
+                  <div class="btn-group">
+                      <a href="#" class="btn btn-default">R$ 210,00</a>
+                      <a href="#" class="btn btn-primary">
+                          <span class="glyphicon glyphicon-shopping-cart">
+                          </span>
+
+                          Comprar
+
+                      </a>
+                  </div>
+              </div>
+
+              <div class="col-xs-12 col-md-4 thumbnail text-center wow fadeInUp" data-wow-delay="1s">
+                  <figure>
+                      <img src="img/camisa-azul.png" alt="Camisa azul nacional" />
+
+                      <div>
+                          <h4>Camisa Azul Nacional</h4>
+                          <p>Camisa azul nacional com preço acessível e bonita</p>
+                      </div>
+                  </figure>
+                  <div class="btn-group">
+                      <a href="#" class="btn btn-default">R$ 90,00</a>
+                      <a href="#" class="btn btn-primary">
+                          <span class="glyphicon glyphicon-shopping-cart">
+                          </span>
+
+                          Comprar
+
+                      </a>
+                  </div>
+              </div>
+
+              <div id="maisVendidos">
+                  <h3 class="text-center">Mais vendidos</h3>
+              </div>
+              <div class="col-xs-12 col-md-4 thumbnail text-center wow fadeInUp" data-wow-delay="1s">
+                <figure>
+                    <img src="img/camisa-azul.png" alt="camisa azul importada" />
+
+                    <div>
+                        <h4>Camisa Azul Importada</h4>
+                        <p>Camisa azul importada com preço acessível e com pano de qualidade</p>
+                    </div>
+                </figure>
+                <div class="btn-group">
+                    <a href="#" class="btn btn-default">R$ 190,00</a>
+                    <a href="#" class="btn btn-primary">
+                        <span class="glyphicon glyphicon-shopping-cart">
+                        </span>
+                        Comprar
+                    </a>
+                </div>
+              </div>
+
+              <div class="col-xs-12 col-md-4 thumbnail text-center wow fadeInUp" data-wow-delay="1s">
+                  <figure>
+                      <img src="img/camisa-rosa.png" alt="Camisa rosa argentina" />
+
+                      <div>
+                          <h4>Camisa Rosa Argentina</h4>
+                          <p>Camisa rosa argentina com preço acessível e com pano de qualidade</p>
+                      </div>
+                  </figure>
+                  <div class="btn-group">
+                      <a href="#" class="btn btn-default">R$ 210,00</a>
+                      <a href="#" class="btn btn-primary">
+                          <span class="glyphicon glyphicon-shopping-cart">
+                          </span>
+
+                          Comprar
+
+                      </a>
+                  </div>
+              </div>
+
+              <div class="col-xs-12 col-md-4 thumbnail text-center wow fadeInUp" data-wow-delay="1s">
+                  <figure>
+                      <img src="img/camisa-azul.png" alt="Camisa azul nacional" />
+
+                      <div>
+                          <h4>Camisa Azul Nacional</h4>
+                          <p>Camisa azul nacional com preço acessível e bonita</p>
+                      </div>
+                  </figure>
+                  <div class="btn-group">
+                      <a href="#" class="btn btn-default">R$ 90,00</a>
+                      <a href="#" class="btn btn-primary">
+                          <span class="glyphicon glyphicon-shopping-cart">
+                          </span>
+
+                          Comprar
+
+                      </a>
+                  </div>
+              </div>
+
+            </div>
           </div>
         </div>
-
-        <div class="col-xs-12 col-md-4 thumbnail text-center">
-            <figure>
-                <img src="img/camisa-rosa.png" alt="Camisa rosa argentina" />
-
-                <div>
-                    <h4>Camisa Rosa Argentina</h4>
-                    <p>Camisa rosa argentina com preço acessível e com pano de qualidade</p>
-                </div>
-            </figure>
-            <div class="btn-group">
-                <a href="#" class="btn btn-default">R$ 210,00</a>
-                <a href="#" class="btn btn-primary">
-                    <span class="glyphicon glyphicon-shopping-cart">
-                    </span>
-
-                    Comprar
-
-                </a>
-            </div>
-        </div>
-
-        <div class="col-xs-12 col-md-4 thumbnail text-center">
-            <figure>
-                <img src="img/camisa-azul.png" alt="Camisa azul nacional" />
-
-                <div>
-                    <h4>Camisa Azul Nacional</h4>
-                    <p>Camisa azul nacional com preço acessível e bonita</p>
-                </div>
-            </figure>
-            <div class="btn-group">
-                <a href="#" class="btn btn-default">R$ 90,00</a>
-                <a href="#" class="btn btn-primary">
-                    <span class="glyphicon glyphicon-shopping-cart">
-                    </span>
-
-                    Comprar
-
-                </a>
-            </div>
-        </div>
       </main>
+      <footer>
+          <p>Primeira Avenida Lt 1</p>
+          <p>(61) 2239-1234</p>
+      </footer>
+
+      <script>
+          new WOW().init();
+      </script>
     </body>
 </html>
