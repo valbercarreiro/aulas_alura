@@ -3,8 +3,8 @@
  */
 package br.com.gerenciador;
 
-import java.util.ArrayList;
 import java.util.Collections;
+import java.util.LinkedList;
 import java.util.List;
 
 /**
@@ -15,7 +15,7 @@ public class Curso {
 	
 	private String nome;
 	private String instrutor;
-	private List<Aula> aulas = new ArrayList<Aula>();
+	private List<Aula> aulas = new LinkedList<Aula>();
 
 	public Curso(String nome, String instrutor) {
 		this.nome = nome;
@@ -36,5 +36,14 @@ public class Curso {
 
 	public void adiciona(Aula aula){
 		this.aulas.add(aula);
+	}
+	
+	public int getTempoTotal(){		
+		return this.aulas.stream().mapToInt(Aula::getTempo).sum();
+	}
+	
+	@Override
+	public String toString() {
+		return "[Curso: "+this.nome+", Tempo Total: "+getTempoTotal()+", aulas: "+this.aulas+"]";
 	}
 }
