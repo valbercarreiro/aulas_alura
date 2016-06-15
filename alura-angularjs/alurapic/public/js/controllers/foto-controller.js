@@ -1,4 +1,4 @@
-angular.module('alurapic').controller('FotoController',function($scope, recursoFoto, $routeParams){
+angular.module('alurapic').controller('FotoController',function($scope, recursoFoto, cadastroDeFotos, $routeParams){
 
     $scope.foto = {};
     $scope.mensagem = '';
@@ -22,7 +22,19 @@ angular.module('alurapic').controller('FotoController',function($scope, recursoF
 
     $scope.submeter = function(){
         if($scope.formulario.$valid){
-            if($scope.foto._id){
+
+            cadastroDeFotos.cadastrar($scope.foto)
+            .then(function(dados){
+                $scope.mensagem = dados.mensagem;
+                if(dados.inclusao){
+                    $scope.foto = {};
+                }                
+            })
+            .catch(function(dados){
+                $scope.mensagem = dados.mensagem;
+            });
+
+            /*if($scope.foto._id){
                 /*$http.put('v1/fotos/'+$scope.foto._id, $scope.foto)
                 .success(function(){
                     $scope.foto = {};
@@ -31,7 +43,7 @@ angular.module('alurapic').controller('FotoController',function($scope, recursoF
                 .error(function(erro){
                     $scope.mensagem = 'Não foi possível alterar a foto '+$scope.foto.titulo;
                 });*/
-                recursoFoto.update({fotoId: $scope.foto._id}, $scope.foto, function(){
+                /*recursoFoto.update({fotoId: $scope.foto._id}, $scope.foto, function(){
                     $scope.foto = {};
                     $scope.mensagem = 'Foto alterada com sucesso';
                 }, function(erro){
@@ -46,7 +58,7 @@ angular.module('alurapic').controller('FotoController',function($scope, recursoF
                 .error(function(erro){
                     $scope.mensagem = 'Não foi possível incluir a foto';
                 });
-            }
+            }*/
         }
     };
 });
