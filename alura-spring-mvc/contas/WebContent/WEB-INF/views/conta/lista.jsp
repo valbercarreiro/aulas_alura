@@ -18,6 +18,7 @@
 			<th>Tipo</th>
 			<th>Paga?</th>
 			<th>Data de Pagamento</th>
+			<th>Ações</th>
 		</tr>
 		
 		<c:forEach items="${todasContas}" var="conta">
@@ -35,6 +36,10 @@
 				 	</c:if>
 				</td>
 				<td><fmt:formatDate value="${conta.dataPagamento.time}" pattern="dd/MM/yyyy"/></td>
+				<td>
+					<a href="removerConta?id=${conta.id}">Deletar</a>
+				</td>
+				<td><a href="mostraConta?id=${conta.id}">Alterar</a></td>
 			</tr>
 		</c:forEach>
 	

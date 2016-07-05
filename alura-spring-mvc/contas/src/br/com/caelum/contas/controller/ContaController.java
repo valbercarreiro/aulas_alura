@@ -26,7 +26,8 @@ public class ContaController {
 		System.out.println("Conta adicionada é: "+c.getDescricao());
 		ContaDAO dao = new ContaDAO();
 		dao.adiciona(c);
-		return "conta/conta-adicionada";
+//		return "conta/conta-adicionada";
+		return "redirect:listaContas";
 	}
 	
 //	@RequestMapping("/listaContas")
@@ -47,5 +48,28 @@ public class ContaController {
 		mv.addAttribute("todasContas", contas);
 		
 		return "conta/lista";
+	}
+	
+	@RequestMapping("/removerConta")
+	public String removeConta(Conta conta){
+		ContaDAO dao = new ContaDAO();
+		
+		dao.remove(conta);
+		
+		return "redirect:listaContas";
+	}
+	
+	@RequestMapping("/mostraConta")
+	public String mostra(Long id, Model model) {
+	  ContaDAO dao = new ContaDAO();
+	  model.addAttribute("conta", dao.buscaPorId(id));
+	  return "conta/mostra";
+	}
+	
+	@RequestMapping("/alteraConta")
+	public String altera(Conta conta) {
+	  ContaDAO dao = new ContaDAO();
+	  dao.altera(conta);
+	  return "redirect:listaContas";
 	}
 }
