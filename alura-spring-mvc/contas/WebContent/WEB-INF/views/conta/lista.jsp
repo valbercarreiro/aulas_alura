@@ -7,6 +7,20 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 <title>Insert title here</title>
+
+<script src="resources/js/jquery.js"></script>
+<script type="text/javascript">
+
+	function deuCerto(dadosResposta){
+		alert('conta paga com sucesso');
+	}
+	function pagaAgora(id) {
+		$.post("pagaConta", {'id' : id}, function() {
+		  $("#conta_"+id).html("Paga");
+		});
+	}	
+
+</script>
 </head>
 <body>
 
@@ -27,19 +41,19 @@
 				<td>${conta.descricao}</td>
 				<td>${conta.valor}</td>
 				<td>${conta.tipo}</td>
-				<td>
-					<c:if test="${conta.paga eq false}">
-						Não Paga
+				<td id="conta_${conta.id}">
+					<c:if test="${conta.paga eq true}">
+						Paga
 					</c:if>
-				 	<c:if test="${conta.paga eq true}">
-				 		Paga
-				 	</c:if>
+					<c:if test="${conta.paga eq false}">
+						<a href="#" onclick="pagaAgora(${conta.id});">Pagar</a>
+					</c:if>
 				</td>
 				<td><fmt:formatDate value="${conta.dataPagamento.time}" pattern="dd/MM/yyyy"/></td>
 				<td>
-					<a href="removerConta?id=${conta.id}">Deletar</a>
+					<a href="removerConta?id=${conta.id}">Deletar |</a>
 				</td>
-				<td><a href="mostraConta?id=${conta.id}">Alterar</a></td>
+				<td><a href="mostraConta?id=${conta.id}">Alterar |</a></td>				
 			</tr>
 		</c:forEach>
 	

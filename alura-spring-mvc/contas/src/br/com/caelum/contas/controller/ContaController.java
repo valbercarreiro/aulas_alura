@@ -2,6 +2,7 @@ package br.com.caelum.contas.controller;
 
 import java.util.List;
 
+import javax.servlet.http.HttpServletResponse;
 import javax.validation.Valid;
 
 import org.springframework.stereotype.Controller;
@@ -76,8 +77,15 @@ public class ContaController {
 	
 	@RequestMapping("/alteraConta")
 	public String altera(Conta conta) {
+		ContaDAO dao = new ContaDAO();
+		dao.altera(conta);
+		return "redirect:listaContas";
+	}
+	
+	@RequestMapping("/pagaConta")
+	public void paga(Conta conta, HttpServletResponse resp) {
 	  ContaDAO dao = new ContaDAO();
-	  dao.altera(conta);
-	  return "redirect:listaContas";
+	  dao.paga(conta.getId());
+	  resp.setStatus(200);
 	}
 }
