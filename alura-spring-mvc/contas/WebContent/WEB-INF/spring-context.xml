@@ -18,6 +18,13 @@
 		</bean>
 	</mvc:interceptors>
 
+	<bean id="mySqlDataSource" class="org.apache.commons.dbcp.BasicDataSource">
+		<property name="driverClassName" value="org.hsqldb.jdbcDriver" />
+		<property name="url" value="jdbc:hsqldb:file:contas.db" />
+		<property name="username" value="sa" />
+		<property name="password" value="" />
+	</bean>
+	
 	<bean
 		class="org.springframework.web.servlet.view.InternalResourceViewResolver">
 		<property name="prefix" value="/WEB-INF/views/" />
