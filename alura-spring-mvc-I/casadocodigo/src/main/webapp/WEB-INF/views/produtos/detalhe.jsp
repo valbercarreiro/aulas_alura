@@ -17,27 +17,27 @@
 		<title>Livros de Java, SOA, Android, iPhone, Ruby on Rails e
 			muito mais - Casa do Código</title>
 		<link href="${contextPath}resources/css/cssbase-min.css"
-			rel="stylesheet" type="text/css" media="all" />
+			rel="stylesheet" type="text/css" />
 		<link href='http://fonts.googleapis.com/css?family=Droid+Sans:400,700'
 			rel='stylesheet'/>
 		<link href="${contextPath}resources/css/fonts.css"
-			rel="stylesheet" type="text/css" media="all" />
+			rel="stylesheet" type="text/css" />
 		<link href="${contextPath}resources/css/fontello-ie7.css"
-			rel="stylesheet" type="text/css" media="all" />
+			rel="stylesheet" type="text/css" />
 		<link href="${contextPath}resources/css/fontello-embedded.css"
-			rel="stylesheet" type="text/css" media="all" />
+			rel="stylesheet" type="text/css" />
 		<link href="${contextPath}resources/css/fontello.css"
-			rel="stylesheet" type="text/css" media="all" />
+			rel="stylesheet" type="text/css" />
 		<link href="${contextPath}resources/css/style.css"
-			rel="stylesheet" type="text/css" media="all" />
+			rel="stylesheet" type="text/css" />
 		<link href="${contextPath}resources/css/layout-colors.css"
-			rel="stylesheet" type="text/css" media="all" />
+			rel="stylesheet" type="text/css" />
 		<link href="${contextPath}resources/css/responsive-style.css"
-			rel="stylesheet" type="text/css" media="all" />
+			rel="stylesheet" type="text/css" />
 		<link href="${contextPath}resources/css/guia-do-programador-style.css" 
-			rel="stylesheet" type="text/css"  media="all"  />
+			rel="stylesheet" type="text/css"   />
 	    <link href="${contextPath}resources/css/produtos.css" 
-	    	rel="stylesheet" type="text/css"  media="all"  />
+	    	rel="stylesheet" type="text/css"   />
 		<link rel="canonical" href="http://www.casadocodigo.com.br/" />	
 </head>
 <body class="produto">
@@ -101,24 +101,23 @@
 		  </header>
 	
 	  
-	  <section class="buy-options clearfix">  
-	  <form action='<c:url value="/carrinho/add"/>' method="post" class="container">
+	  <section class="buy-options clearfix">
+	  <form action="${contextPath}carrinho/add" method="post" class="container">
 	    <ul id="variants" class="clearfix">
-	    	<input type="hidden" value="produto.id" name="produtoId"/>
-	    	<c:forEach items="${produto.precos }" var="preco">
-	    	  <li class="buy-option">
-	            <input type="radio" name="tipo" class="variant-radio" id="tipo" value="${preco.tipo }"  checked="checked"  />
-	            <label  class="variant-label" >
-	              ${preco.tipo } 
+	        <input type="hidden" name="produtoId" value="${produto.id}" />
+	        <c:forEach items="${produto.precos}" var="preco">
+	          <li class="buy-option">
+	            <input type="radio" name="tipo" class="variant-radio" id="tipo" value="${preco.tipo}"  checked="checked"  />
+	            <label  class="variant-label">
+	              ${preco.tipo}
 	            </label>
 	            <small class="compare-at-price">R$ 39,90</small>
-	            <p class="variant-price">R$ ${preco.valor }</p>
+	            <p class="variant-price">${preco.valor}</p>
 	          </li>
-	         </c:forEach>           
+	        </c:forEach>           
 	    </ul>
-	    <button type="submit" class="submit-image icon-basket-alt" alt="Compre Agora" title="Compre Agora '${produto.titulo }'"></button>
-	    
-	  </form>
+	    <button type="submit" class="submit-image icon-basket-alt" alt="Compre Agora" title="Compre Agora${produto.titulo}"></button>
+	</form>
 	  
 	</section>
 	  
