@@ -3,6 +3,8 @@
  */
 package br.com.casadocodigo.loja.models;
 
+import java.math.BigDecimal;
+
 /**
  * @author Valber Paulino
  *
@@ -32,6 +34,10 @@ public class CarrinhoItem {
 	public void setTipo(TipoPreco tipo) {
 		this.tipo = tipo;
 	}
+	
+	public BigDecimal getPreco(){
+		return produto.precoPara(tipo);
+	}
 
 	@Override
 	public int hashCode() {
@@ -59,6 +65,10 @@ public class CarrinhoItem {
 		if (tipo != other.tipo)
 			return false;
 		return true;
+	}
+
+	public BigDecimal getTotal(int quantidade) {
+		return this.getPreco().multiply(new BigDecimal(quantidade));
 	}
 
 }
