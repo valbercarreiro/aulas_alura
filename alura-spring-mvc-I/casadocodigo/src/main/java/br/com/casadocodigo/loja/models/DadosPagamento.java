@@ -1,0 +1,32 @@
+/**
+ * 
+ */
+package br.com.casadocodigo.loja.models;
+
+import java.math.BigDecimal;
+
+/**
+ * @author Valber Paulino
+ *
+ */
+public class DadosPagamento {
+	
+	private BigDecimal value;
+
+	public DadosPagamento(BigDecimal value){
+		this.value = value;
+	}
+	
+	public DadosPagamento(){
+		
+	}
+
+	public BigDecimal getValue() {
+		return value;
+	}
+
+	public void setValue(BigDecimal value) {
+		this.value = value;
+	}
+
+}

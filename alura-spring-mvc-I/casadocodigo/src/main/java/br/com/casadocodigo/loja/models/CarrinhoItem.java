@@ -3,14 +3,17 @@
  */
 package br.com.casadocodigo.loja.models;
 
+import java.io.Serializable;
 import java.math.BigDecimal;
 
 /**
  * @author Valber Paulino
  *
  */
-public class CarrinhoItem {
+public class CarrinhoItem implements Serializable {
 
+	private static final long serialVersionUID = -4382289057172491933L;
+	
 	private Produto produto;
 	private TipoPreco tipo;
 
