@@ -12,6 +12,7 @@ import javax.persistence.PersistenceContext;
 import br.com.caelum.livraria.modelo.Autor;
 
 @Stateless
+//@Interceptors({LogInterceptador.class})
 public class AutorDao {
 
 	@PersistenceContext
