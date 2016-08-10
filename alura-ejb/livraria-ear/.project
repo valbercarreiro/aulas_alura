@@ -3,7 +3,6 @@
 	<name>livraria-ear</name>
 	<comment></comment>
 	<projects>
-		<project>ejb-timeservice</project>
 		<project>livraria</project>
 	</projects>
 	<buildSpec>
