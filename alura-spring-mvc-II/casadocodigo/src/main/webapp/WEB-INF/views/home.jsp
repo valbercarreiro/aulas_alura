@@ -5,7 +5,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<c:url value="/" var="contextPath" />
+	<c:url value="/resources/css" var="contextPath" />
 	  <meta charset="utf-8"/>
 		  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"/>
 		  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
@@ -16,30 +16,30 @@
 			rel="publisher"/>
 		<title>Livros de Java, SOA, Android, iPhone, Ruby on Rails e
 			muito mais - Casa do Código</title>
-		<link href="${contextPath}resources/css/cssbase-min.css"
+		<link href="${contextPath}/cssbase-min.css"
 			rel="stylesheet" type="text/css" media="all" />
 		<link href='http://fonts.googleapis.com/css?family=Droid+Sans:400,700'
 			rel='stylesheet'/>
-		<link href="${contextPath}resources/css/fonts.css"
+		<link href="${contextPath}/fonts.css"
 			rel="stylesheet" type="text/css" media="all" />
-		<link href="${contextPath}resources/css/fontello-ie7.css"
+		<link href="${contextPath}/fontello-ie7.css"
 			rel="stylesheet" type="text/css" media="all" />
-		<link href="${contextPath}resources/css/fontello-embedded.css"
+		<link href="${contextPath}/fontello-embedded.css"
 			rel="stylesheet" type="text/css" media="all" />
-		<link href="${contextPath}resources/css/fontello.css"
+		<link href="${contextPath}/fontello.css"
 			rel="stylesheet" type="text/css" media="all" />
-		<link href="${contextPath}resources/css/style.css"
+		<link href="${contextPath}/style.css"
 			rel="stylesheet" type="text/css" media="all" />
-		<link href="${contextPath}resources/css/layout-colors.css"
+		<link href="${contextPath}/layout-colors.css"
 			rel="stylesheet" type="text/css" media="all" />
-		<link href="${contextPath}resources/css/responsive-style.css"
+		<link href="${contextPath}/responsive-style.css"
 			rel="stylesheet" type="text/css" media="all" />
-		<link href="${contextPath}resources/css/guia-do-programador-style.css" 
+		<link href="${contextPath}/guia-do-programador-style.css" 
 			rel="stylesheet" type="text/css"  media="all"  />
-	    <link href="${contextPath}resources/css/produtos.css" 
+	    <link href="${contextPath}/produtos.css" 
 	    	rel="stylesheet" type="text/css"  media="all"  />
 		<link rel="canonical" href="http://www.casadocodigo.com.br/" />	
-		<link href="${contextPath}resources/css/book-collection.css"
+		<link href="${contextPath}/book-collection.css"
 				rel="stylesheet" type="text/css" media="all" />
 </head>
 <body>
@@ -52,6 +52,10 @@
 				<nav id="main-nav">
 					
 					<ul class="clearfix">
+						<li><a href="${s:mvcUrl('PC#listar').build() }" rel="nofollow">Lista de Produtos</a></li>
+						
+						<li><a href="${s:mvcUrl('PC#form').build() }" rel="nofollow">Cadastro de Produtos</a></li>
+						
 						<li><a href="/cart" rel="nofollow">Carrinho</a></li>
 
 						<li><a href="/pages/sobre-a-casa-do-codigo" rel="nofollow">Sobre Nós</a></li>
