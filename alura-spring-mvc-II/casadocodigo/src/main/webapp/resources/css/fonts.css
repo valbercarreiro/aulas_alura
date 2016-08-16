@@ -4,8 +4,8 @@
   font-weight: normal;
   src: url('museo-500.eot');
   src: url('museo-500.eot?#iefix') format('embedded-opentype'),
-       url('museo-500.woff') format('woff'),
-       url('museo-500.ttf') format('truetype');
+       url('/casadocodigo/resources/fonts/museo-500.woff') format('woff'),
+       url('/casadocodigo/resources/fonts/museo-500.ttf') format('truetype');
 }
 
 @font-face {
@@ -14,6 +14,6 @@
   font-weight: bold;
   src: url('museo-700.eot');
   src: url('museo-700.eot?#iefix') format('embedded-opentype'),
-       url('museo-700.woff') format('woff'),
-       url('museo-700.ttf') format('truetype');
+       url('/casadocodigo/resources/fonts/museo-700.woff') format('woff'),
+       url('/casadocodigo/resources/fonts/museo-700.ttf') format('truetype');
 }

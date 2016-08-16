@@ -2,6 +2,7 @@
 <%@ attribute name="titulo" required="true"%>
 <%@ attribute name="bodyClass" required="false"%>
 <%@ attribute name="extraScripts" fragment="true" %>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -17,8 +18,9 @@
 			type="image/ico" />
 		<link href="https://plus.googlecom/108540024862647200608"
 			rel="publisher"/>
-		<link rel="stylesheet" href="${contextPath}/bootstrap.min.css">
-		<link rel="stylesheet" href="${contextPath}/bootstrap-theme.min.css" >
+		<link rel="stylesheet" href="${contextPath}resources/css/bootstrap.css">
+		<link rel="stylesheet" href="${contextPath}resources/css/bootstrap.min.css">
+		<link rel="stylesheet" href="${contextPath}resources/css/bootstrap-theme.min.css" >
 		<link href="${contextPath}resources/css/cssbase-min.css"
 			rel="stylesheet" type="text/css" />
 		<link href='http://fonts.googleapis.com/css?family=Droid+Sans:400,700'
@@ -40,6 +42,8 @@
 		<link href="${contextPath}resources/css/guia-do-programador-style.css" 
 			rel="stylesheet" type="text/css"   />
 	    <link href="${contextPath}resources/css/produtos.css" 
+	    	rel="stylesheet" type="text/css"   />
+	    <link href="${contextPath}resources/css/checkout-style.css" 
 	    	rel="stylesheet" type="text/css"   />
 		<link rel="canonical" href="http://www.casadocodigo.com.br/" />	
 </head>
