@@ -12,7 +12,11 @@ public class Principal {
 		Mapeador m = new Mapeador();
 		
 		m.load("classes.prop");
+		
+		List l = m.getInstancia(List.class);
 
+		System.out.println(l.getClass());
+		
 		System.out.println(m.getImplementacao(List.class));
 		System.out.println(m.getImplementacao(Map.class));
 	}
