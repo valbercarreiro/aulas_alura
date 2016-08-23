@@ -1,4 +1,4 @@
-package br.com.alura.javaReflexion.mapeia;
+package br.com.alura.javaReflection.mapeia;
 
 import java.io.FileInputStream;
 import java.lang.reflect.Constructor;

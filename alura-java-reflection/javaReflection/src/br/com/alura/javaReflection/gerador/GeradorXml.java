@@ -1,7 +1,7 @@
 /**
  * 
  */
-package br.com.alura.javaReflexion.gerador;
+package br.com.alura.javaReflection.gerador;
 
 import java.lang.reflect.Field;
 

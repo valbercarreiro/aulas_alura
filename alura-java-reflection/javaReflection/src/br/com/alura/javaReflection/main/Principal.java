@@ -1,7 +1,7 @@
-package br.com.alura.javaReflexion.main;
+package br.com.alura.javaReflection.main;
 
-import br.com.alura.javaReflexion.models.UsuarioXml;
-import br.com.alura.javaReflexion.validador.Validador;
+import br.com.alura.javaReflection.models.UsuarioXml;
+import br.com.alura.javaReflection.validador.Validador;
 
 public class Principal {
 

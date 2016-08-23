@@ -1,4 +1,4 @@
-package br.com.alura.javaReflexion.models;
+package br.com.alura.javaReflection.models;
 
 public class Usuario {
 	
