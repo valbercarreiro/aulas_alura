@@ -39,5 +39,16 @@ public class UsuarioXml {
 	public void setAtivo(Boolean ativo) {
 		this.ativo = ativo;
 	}
+	
+	public boolean validarEmail(){
+		return this.email.contains("@");
+	}
+	
+	public boolean validarSenha(){
+		return this.senha.length() > 8;
+	}
 
+	public boolean validarLogin(){
+		return this.login.length() > 5 && this.login.length() < 10;
+	}
 }

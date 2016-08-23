@@ -1,11 +1,7 @@
 package br.com.alura.javaReflexion.main;
 
-import java.util.List;
-import java.util.Map;
-
-import br.com.alura.javaReflexion.gerador.GeradorXml;
-import br.com.alura.javaReflexion.mapeia.Mapeador;
 import br.com.alura.javaReflexion.models.UsuarioXml;
+import br.com.alura.javaReflexion.validador.Validador;
 
 public class Principal {
 
@@ -22,15 +18,27 @@ public class Principal {
 //		System.out.println(m.getImplementacao(List.class));
 //		System.out.println(m.getImplementacao(Map.class));
 		
+//		UsuarioXml u = new UsuarioXml();
+//		u.setLogin("gerra");
+//		u.setSenha("senhadoguerra");
+//		u.setEmail("guerra@guerra.com");
+//		u.setPapel("Professor");
+//		u.setAtivo(true);
+		
+//		String xml = GeradorXml.getXML(u);
+//		System.out.println(xml);
+		
 		UsuarioXml u = new UsuarioXml();
-		u.setLogin("gerra");
+		u.setLogin("reflection");
 		u.setSenha("senhadoguerra");
 		u.setEmail("guerra@guerra.com");
-		u.setPapel("Professor");
-		u.setAtivo(true);
 		
-		String xml = GeradorXml.getXML(u);
-		System.out.println(xml);
+		boolean valido = Validador.validarObjeto(u);
+		if(valido){
+			System.out.println("O objeto é válido.");
+		} else {
+			System.out.println("O objeto é INválido.");
+		}
 	}
 
 }
