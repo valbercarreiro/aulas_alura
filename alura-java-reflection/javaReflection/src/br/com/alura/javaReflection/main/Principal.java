@@ -1,5 +1,8 @@
 package br.com.alura.javaReflection.main;
 
+import java.lang.reflect.InvocationTargetException;
+import java.lang.reflect.Method;
+
 import br.com.alura.javaReflection.models.UsuarioXml;
 import br.com.alura.javaReflection.validador.Validador;
 
@@ -28,16 +31,26 @@ public class Principal {
 //		String xml = GeradorXml.getXML(u);
 //		System.out.println(xml);
 		
-		UsuarioXml u = new UsuarioXml();
-		u.setLogin("reflection");
-		u.setSenha("senhadoguerra");
-		u.setEmail("guerra@guerra.com");
+//		UsuarioXml u = new UsuarioXml();
+//		u.setLogin("reflection");
+//		u.setSenha("senhadoguerra");
+//		u.setEmail("guerra@guerra.com");
+//		
+//		boolean valido = Validador.validarObjeto(u);
+//		if(valido){
+//			System.out.println("O objeto é válido.");
+//		} else {
+//			System.out.println("O objeto é INválido.");
+//		}
 		
-		boolean valido = Validador.validarObjeto(u);
-		if(valido){
-			System.out.println("O objeto é válido.");
-		} else {
-			System.out.println("O objeto é INválido.");
+		TesteErros obj = new TesteErros();
+		Class<?> c = obj.getClass();
+		
+		try {
+			Method m = c.getDeclaredMethod("metodo", String.class);
+			m.invoke(obj);
+		} catch (InvocationTargetException e) {
+			e.printStackTrace();
 		}
 	}
 
