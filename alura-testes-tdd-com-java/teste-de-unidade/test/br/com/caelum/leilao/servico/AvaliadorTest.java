@@ -1,11 +1,14 @@
 package br.com.caelum.leilao.servico;
 
 import static org.junit.Assert.*;
+import static org.hamcrest.MatcherAssert.assertThat;
+import static org.hamcrest.Matchers.*;
 
 import java.util.List;
 
 import org.junit.After;
 import org.junit.AfterClass;
+import org.junit.Assert;
 import org.junit.Before;
 import org.junit.BeforeClass;
 import org.junit.Test;
@@ -45,12 +48,15 @@ public class AvaliadorTest {
 		//Executa a ação
 		leiloeiro.avalia(leilao);
 		
-		double maiorEsperado = 400.00;
-		double menorEsperado = 250.00;
+//		double maiorEsperado = 400.00;
+//		double menorEsperado = 250.00;
 		
 		//Valida a saída
-		assertEquals(maiorEsperado, leiloeiro.getMaiorLance(), 0.00001);
-		assertEquals(menorEsperado, leiloeiro.getMenorLance(), 0.00001);
+//		assertEquals(maiorEsperado, leiloeiro.getMaiorLance(), 0.00001);
+//		assertEquals(menorEsperado, leiloeiro.getMenorLance(), 0.00001);
+		
+		assertThat(leiloeiro.getMenorLance(), equalTo(250.0));
+        assertThat(leiloeiro.getMaiorLance(), equalTo(400.0));
 		
 	}	
 	
@@ -66,8 +72,10 @@ public class AvaliadorTest {
 		leiloeiro.avalia(leilao);
 		
 		//Valida a saída
-		assertEquals(1000.00, leiloeiro.getMaiorLance(), 0.00001);
-		assertEquals(1000.00, leiloeiro.getMenorLance(), 0.00001);
+//		assertEquals(1000.00, leiloeiro.getMaiorLance(), 0.00001);
+//		assertEquals(1000.00, leiloeiro.getMenorLance(), 0.00001);
+		
+		assertThat(leiloeiro.getMenorLance(), equalTo(leiloeiro.getMaiorLance()));
 		
 	}
 	
@@ -106,9 +114,7 @@ public class AvaliadorTest {
 		
 		List<Lance> maiores = leiloeiro.getTresMaiores();
 		assertEquals(3, maiores.size());
-		assertEquals(400.0, maiores.get(0).getValor(), 0.00001);
-		assertEquals(300.0, maiores.get(1).getValor(), 0.00001);
-		assertEquals(200.0, maiores.get(2).getValor(), 0.00001);
+		assertThat(maiores, hasItems(new Lance(maria,400), new Lance(joao,300), new Lance(maria,200)));
 	}
 	
 	@Test
@@ -141,5 +147,14 @@ public class AvaliadorTest {
 	@AfterClass
 	public static void testandoAfterClass() {
 	  System.out.println("after class");
+	}
+	
+	@Test(expected=RuntimeException.class)
+    public void naoDeveAvaliarLeilaoSemLances() {
+		Leilao leilao = new CriadorDeLeilao().para("Playstation 3 Novo").constroi();
+			
+		leiloeiro.avalia(leilao);
+			
+		Assert.fail();
 	}
 }
