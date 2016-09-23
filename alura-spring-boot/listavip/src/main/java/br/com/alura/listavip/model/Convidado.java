@@ -11,6 +11,15 @@ public class Convidado {
 	@GeneratedValue
 	private Long id;
 	
+	public Convidado(){}
+	
+	public Convidado(String nome, String email, String telefone) {
+		super();
+		this.nome = nome;
+		this.email = email;
+		this.telefone = telefone;
+	}
+
 	private String nome;
 	
 	private String email;
