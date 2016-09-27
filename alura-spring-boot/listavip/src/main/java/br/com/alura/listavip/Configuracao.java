@@ -19,15 +19,15 @@ public class Configuracao {
 		SpringApplication.run(Configuracao.class, args);
 	}
 
-	@Bean
-	public DataSource dataSource(){
-		DriverManagerDataSource dataSource = new DriverManagerDataSource();
-		dataSource.setDriverClassName("org.postgresql.Driver");
-		dataSource.setUrl("jdbc:postgresql://localhost:5432/listavip");
-		dataSource.setUsername("postgres");
-		dataSource.setPassword("root");
-		return dataSource;
-	}
+//	@Bean
+//	public DataSource dataSource(){
+//		DriverManagerDataSource dataSource = new DriverManagerDataSource();
+//		dataSource.setDriverClassName("org.postgresql.Driver");
+//		dataSource.setUrl("jdbc:postgresql://localhost:5432/listavip");
+//		dataSource.setUsername("postgres");
+//		dataSource.setPassword("root");
+//		return dataSource;
+//	}
 	
 	@Bean
 	public LocalContainerEntityManagerFactoryBean entityManagerFactory(
@@ -48,8 +48,8 @@ public class Configuracao {
 	public Properties additionalProperties() {
 		Properties props = new Properties();
 		props.setProperty("hibernate.dialect", "org.hibernate.dialect.PostgreSQLDialect");
-		props.setProperty("hibernate.show_sql", "true");
-		props.setProperty("hibernate.hbm2ddl.auto", "update");
+//		props.setProperty("hibernate.show_sql", "true");
+//		props.setProperty("hibernate.hbm2ddl.auto", "update");
 		return props;
 	}
 }
