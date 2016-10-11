@@ -56,7 +56,7 @@ public class ProdutoDao {
 			predicates.add(lojaIgual);
 		}
 
-		query.where((Predicate[]) predicates.toArray(new Predicate[0]));
+		query.where((Predicate[]) predicates.toArray());
 
 		TypedQuery<Produto> typedQuery = em.createQuery(query);
 		return typedQuery.getResultList();
