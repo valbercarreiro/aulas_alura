@@ -1,5 +1,6 @@
 package br.com.caelum;
 
+import java.beans.PropertyVetoException;
 import java.util.Properties;
 
 import javax.persistence.EntityManagerFactory;
@@ -13,18 +14,31 @@ import org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean;
 import org.springframework.orm.jpa.vendor.HibernateJpaVendorAdapter;
 import org.springframework.transaction.annotation.EnableTransactionManagement;
 
+import com.mchange.v2.c3p0.ComboPooledDataSource;
+
 @Configuration
 @EnableTransactionManagement
 public class JpaConfigurator {
 
-	@Bean
-	public DataSource getDataSource() {
-	    DriverManagerDataSource dataSource = new DriverManagerDataSource();
-
-	    dataSource.setDriverClassName("org.postgresql.Driver");
-	    dataSource.setUrl("jdbc:postgresql://localhost/projeto_jpa");
-	    dataSource.setUsername("postgres");
+	@Bean(destroyMethod = "close")
+	public DataSource getDataSource() throws PropertyVetoException {
+//	    DriverManagerDataSource dataSource = new DriverManagerDataSource();
+//	    dataSource.setDriverClassName("org.postgresql.Driver");
+//	    dataSource.setUrl("jdbc:postgresql://localhost/projeto_jpa");
+//	    dataSource.setUsername("postgres");
+//	    dataSource.setPassword("root");
+	    
+	    ComboPooledDataSource dataSource = new ComboPooledDataSource();
+	    dataSource.setDriverClass("org.postgresql.Driver");
+	    dataSource.setUser("postgres");
 	    dataSource.setPassword("root");
+	    dataSource.setJdbcUrl("jdbc:postgresql://localhost/projeto_jpa");
+	    
+	    dataSource.setMinPoolSize(5); //defaut 3
+	    dataSource.setMaxPoolSize(10); //defaut 15
+	    dataSource.setNumHelperThreads(5);
+	    
+	    dataSource.setIdleConnectionTestPeriod(1); //a cada um segundo testamos as conexões ociosas
 
 	    return dataSource;
 	}
