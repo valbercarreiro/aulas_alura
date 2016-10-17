@@ -19,9 +19,12 @@ import javax.persistence.Version;
 import javax.validation.Valid;
 import javax.validation.constraints.Min;
 
+import org.hibernate.annotations.Cache;
+import org.hibernate.annotations.CacheConcurrencyStrategy;
 import org.hibernate.validator.constraints.NotEmpty;
 
 @Entity
+@Cache(usage=CacheConcurrencyStrategy.NONSTRICT_READ_WRITE)
 public class Produto {
 
 	@Id
@@ -41,9 +44,11 @@ public class Produto {
 	
 	@Valid
 	@ManyToOne
+	@Cache(usage=CacheConcurrencyStrategy.NONSTRICT_READ_WRITE)
 	private Loja loja;
 	
 	@ManyToMany
+	@Cache(usage=CacheConcurrencyStrategy.NONSTRICT_READ_WRITE)
 	@JoinTable (name = "produtos_categorias", 
 		joinColumns = {
 			@JoinColumn(columnDefinition="produto_idproduto", referencedColumnName="id")
