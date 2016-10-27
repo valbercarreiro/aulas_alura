@@ -1,14 +1,18 @@
 var atualizaDados = function(){
-    var items = $(".item-total:visible");
-    var total = 0;
-    for(i=0; i<items.length; i++){
-        var item = $(items[i]);
-        var valor = parseFloat(item.text());
-        total = total + valor;
-    }
-    console.log("valor total "+total);
-    $("#valorTotal").text(total);
-    $("#quantidade-de-itens").text(items.length);
+    var carrinhos = $(".carrinho");
+    carrinhos.each(function(){
+        var carrinho = $(this);
+        var items = carrinho.find(".item-total:visible");
+        var total = 0;
+        for(i=0; i<items.length; i++){
+            var item = $(items[i]);
+            var valor = parseFloat(item.text());
+            total = total + valor;
+        }
+        console.log("valor total "+total);
+        carrinho.find(".valorTotal").text(total);
+        carrinho.find(".quantidade-de-itens").text(items.length);
+    });
 };
 
 var removeItem = function(event){
@@ -27,9 +31,10 @@ var removeItem = function(event){
 };
 
 var undo = function(){
-    $("tr:visible").removeClass("recuperado");
+    var carrinho = $(this).closest(".carrinho");
+    carrinho.find("tr:visible").removeClass("recuperado");
 
-    var trs = $("tr:hidden");
+    var trs = carrinho.find("tr:hidden");
     trs.addClass("recuperado");
     trs.show();
     atualizaDados();
@@ -37,7 +42,7 @@ var undo = function(){
 
 var aposInicializado = function(){
     atualizaDados();
-    $("#undo").click(undo);
+    $(".undo").click(undo);
     $(".remove-item").click(removeItem);
 }
 $(aposInicializado);
