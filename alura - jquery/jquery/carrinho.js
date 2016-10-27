@@ -52,6 +52,32 @@ var undo = function(){
     atualizaDados();
 };
 
+var darDestaque = function(){
+    $(this).find(".remove-item").fadeIn();
+    $(this).addClass("hovering");
+};
+
+var tiraDestaque = function(){
+    $(this).find(".remove-item").fadeOut();
+    $(this).removeClass("hovering");
+};
+
+var escondePropagandas = function(event){
+    event.preventDefault();
+    $(".propaganda").fadeOut(5000);
+};
+
+var mostrarPropagandas = function(event){
+    event.preventDefault();
+    $(".propaganda").fadeIn(5000);
+};
+
+var alternaPropagandas = function(event){
+    event.preventDefault();
+    $(".propaganda").fadeToggle();
+    $(".alterna-propaganda").toggle();
+};
+
 var aposInicializado = function(){
     atualizaDados();
     $(".undo").click(undo);
@@ -63,5 +89,12 @@ var aposInicializado = function(){
             umaPropaganda().insertAfter($(this));
         });
     });
+
+    $("tr").on("mouseenter", darDestaque);
+    $("tr").on("mouseleave", tiraDestaque);
+    //$("tr").hover(darDestaque, tiraDestaque);
+    //$(".carrinho tbody tr").hover(daDestaque, tiraDestaque);
+
+    $(".alterna-propaganda").click(alternaPropagandas);
 }
 $(aposInicializado);
