@@ -1,8 +1,10 @@
 import { NgModule } from '@angular/core';
+import { CommonModule } from '@angular/common';
 import { PainelComponent } from './painel.component';
 
 @NgModule({
-    declarations: [PainelComponent],
-    exports: [ PainelComponent ]
+  imports: [ CommonModule ],
+  declarations: [ PainelComponent ],
+  exports: [ PainelComponent ]
 })
 export class PainelModule { }

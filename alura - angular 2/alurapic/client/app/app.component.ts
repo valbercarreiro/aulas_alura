@@ -1,9 +1,8 @@
-import { Component } from '@angular/core';
-import { Http } from '@angular/http';
+import { Component, Inject } from '@angular/core';
 
 @Component({
     moduleId: module.id,
     selector: 'app',
     templateUrl: './app.component.html'
 })
-export class AppComponent {}
+export class AppComponent { }
