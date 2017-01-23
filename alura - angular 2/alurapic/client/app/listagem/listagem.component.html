@@ -27,7 +27,10 @@
                 <foto titulo="{{foto.titulo}}" url="{{foto.url}}">
                 </foto>
             </a>
+            <!--
             <button class="btn btn-danger btn-block" (click)="remove(foto)">Remover</button>
+            -->
+            <botao nome="Remover" estilo="btn-danger btn-block" tipo="button" desabilitado (acao)="remove(foto)" confirmacao="true"></botao>
         </painel>
     </div><!-- fim row -->
 </div>
