@@ -6,23 +6,23 @@ import { Component, Input, EventEmitter, Output } from '@angular/core';
     templateUrl: './botao.component.html'
 })
 export class BotaoComponent {
-
-    @Input() nome: String = 'Ok';
-    @Input() estilo: String = 'btn-default';
-    @Input() tipo: String = 'button';
+    
+    @Input() nome: string = 'Ok';
+    @Input() estilo: string = 'btn-default';
+    @Input() tipo: string = 'button';
     @Input() desabilitado: boolean = false;
-    @Input() confirmacao: boolean = false;
-
     @Output() acao = new EventEmitter();
+    @Input() confirmacao: boolean;
 
     executaAcao() {
-        if(this.confirmacao){
-            if(confirm('Deseja excluir?')){
+
+        if(this.confirmacao) {
+            if(confirm('Deseja excluir?')) {
+                
                 this.acao.emit(null);
             }
             return;
         }
         this.acao.emit(null);
     }
-
 }

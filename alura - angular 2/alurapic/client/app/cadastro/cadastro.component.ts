@@ -1,4 +1,4 @@
-import { Component, Input } from '@angular/core';
+import { Component } from '@angular/core';
 import { FotoComponent } from '../foto/foto.component';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { FotoService } from '../foto/foto.service';
@@ -7,7 +7,7 @@ import { ActivatedRoute, Router } from '@angular/router';
 @Component({
     moduleId: module.id,
     selector: 'cadastro',
-    templateUrl: './cadastro.component.html' 
+    templateUrl: './cadastro.component.html'
 })
 export class CadastroComponent { 
 
@@ -16,45 +16,52 @@ export class CadastroComponent {
     service: FotoService;
     route: ActivatedRoute;
     router: Router;
-    mensagem: String = '';
+    mensagem: string = '';
 
     constructor(service: FotoService, fb: FormBuilder, route: ActivatedRoute, router: Router) {
 
-        this.service = service;
+        this.service = service;        
+        
         this.route = route;
         this.router = router;
+
         this.route.params.subscribe(params => {
+
             let id = params['id'];
+            
+            if(id) {
 
-            if(id){
-                this.service.buscaPorId(id)
-                .subscribe(foto => {
-                    this.foto = foto;
-                }, erro => console.log(erro));
+                this.service
+                    .buscaPorId(id)
+                    .subscribe(
+                        foto => this.foto = foto, 
+                        erro => console.log(erro)
+                    );
             }
-        });        
 
+        });
+
+        
         this.meuForm = fb.group({
-            titulo: ['', Validators.compose(
-                [Validators.required, Validators.minLength(4)]
-            )],
+            titulo: ['', Validators.compose([Validators.required, Validators.minLength(4)])],
             url: ['', Validators.required],
-            descricao: [''],
+            descricao: ['']
         });
     }
 
     cadastrar(event) {
+
         event.preventDefault();
+
         console.log(this.foto);
 
-        this.service.cadastra(this.foto)
-        .subscribe(res => {
-            this.mensagem = res.mensagem;
-            console.log("Foto Cadastrada com sucesso!");
-            this.foto = new FotoComponent();
-            if(!res.inclusao){
-                this.router.navigate(['']);
-            }
-        }, erro => console.log(erro));     
+        this.service
+            .cadastra(this.foto)
+            .subscribe(res => {
+                this.mensagem = res.mensagem;
+                this.foto = new FotoComponent();
+                if(!res.inclusao) this.router.navigate(['']);
+            }, erro => console.log(erro));
     }
+
 }
